@@ -1,0 +1,19 @@
+    <ol style="list-style: none;" *ngFor="let lesson of dayLessons; let i = index;">
+
+        <div *ngIf="lesson.index==i; else elseBlock">
+            <li style="margin: 5%;">
+                <app-lesson-detail [lesson]="lesson" [from]="getCurrentTimespan(i)" [to]="getCurrentTimespan(i+1)"></app-lesson-detail>
+            </li>
+        </div>
+        <ng-template #elseBlock>
+            <!--Print Breaks-->
+            <div *ngFor="let b of getNumberArrayTill(lesson.index-i); let bCounter = index">
+                <div style="background-color: lightgreen;height: 50px;margin: 5%;">
+                    <p style="text-align: center; vertical-align: middle;">Break {{getCurrentTimespan(i+bCounter)}}:00 - {{getCurrentTimespan(i+bCounter+1)}}:00</p>
+                </div>
+            </div>
+            <li style="margin: 5%;">
+                <app-lesson-detail  [lesson]="lesson" [from]="getCurrentTimespan(i+breakEnd)" [to]="getCurrentTimespan(i+breakEnd+1)" [lesson]="lesson"></app-lesson-detail>
+            </li>
+        </ng-template>
+    </ol>

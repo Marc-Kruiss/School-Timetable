@@ -1,0 +1,28 @@
+GET http://localhost:8080/planer/init
+###
+GET http://localhost:8080/planer/findAll
+###
+GET http://localhost:8080/planer/find/1
+###
+DELETE http://localhost:8080/planer/delete/2
+###
+POST http://localhost:8080/planer/create
+Content-Type: application/json
+
+{
+  "day": "11/01/2020",
+  "index": "Salzburg",
+  "subject": "ElectricLove",
+  "teacher": "1000000"
+}
+###
+PUT http://localhost:8080/person/update
+Content-Type: application/json
+
+{
+  "id":1,
+  "day": "11/01/2020",
+  "index": "Salzburg",
+  "subject": "ElectricLove",
+  "teacher": "1000000"
+}
